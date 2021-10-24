@@ -1,0 +1,14 @@
+﻿<Window x:Class="APL_Matrix_Calculator.Result"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:APL_Matrix_Calculator"
+        mc:Ignorable="d"
+        Title="Result" Height="350" Width="500">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Height="66" Margin="0" TextWrapping="Wrap" Text="C = " VerticalAlignment="Top" Width="84" FontSize="48"/>
+        <TextBlock x:Name="Answer" HorizontalAlignment="Center" Height="251" Margin="10,0,10,10" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Bottom" Width="472" FontSize="48"/>
+
+    </Grid>
+</Window>
