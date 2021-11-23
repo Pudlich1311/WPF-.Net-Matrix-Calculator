@@ -78,7 +78,14 @@ namespace APL_Matrix_Calculator
                 return;
           }
 
-            if (A_Rows.SelectedItem == null || A_Columns.SelectedItem == null || B_Rows.SelectedItem == null || B_Columns.SelectedItem == null)
+            if (string.IsNullOrEmpty(Language.Text))
+            {
+                string message = "No language selected";
+                MessageBox.Show(message);
+                return;
+            }
+
+                if (A_Rows.SelectedItem == null || A_Columns.SelectedItem == null || B_Rows.SelectedItem == null || B_Columns.SelectedItem == null)
             {
                 string message = "No value in one of the row and column boxes";
                 MessageBox.Show(message);
@@ -123,6 +130,23 @@ namespace APL_Matrix_Calculator
         {
             InsertValues insval = new InsertValues();
             insval.Oper(sender, e, oper);
+
+            if(Language.Text=="Asm")
+            {
+                insval.type = 1;
+            }
+            else if(Language.Text=="C")
+            {
+                insval.type = 2;
+            }
+            else if(Language.Text=="C++")
+            {
+                insval.type = 3;
+            }
+            else if(Language.Text=="C#")
+            {
+                insval.type = 4;
+            }
             insval.TextBoxesA(sender, e, A_Rows.SelectedIndex+1, A_Columns.SelectedIndex+1);
             insval.TextBoxesB(sender, e, B_Rows.SelectedIndex + 1, B_Columns.SelectedIndex + 1);
             insval.ShowDialog();

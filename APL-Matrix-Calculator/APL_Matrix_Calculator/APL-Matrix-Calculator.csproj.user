@@ -4,4 +4,14 @@
     <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
     <EnableSQLServerDebugging>true</EnableSQLServerDebugging>
   </PropertyGroup>
+  <PropertyGroup>
+    <PublishUrlHistory>publikuj\</PublishUrlHistory>
+    <InstallUrlHistory />
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>pl-PL</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
 </Project>

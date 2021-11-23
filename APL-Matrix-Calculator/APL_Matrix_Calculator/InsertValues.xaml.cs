@@ -16,34 +16,6 @@ using System.Runtime.InteropServices;
 /// <summary>
 /// Tymczasowa funkcja do odpalania asm
 /// </summary>
-public unsafe class Asm
-{
-    [DllImport("Asm.dll")]
- 
-
-    private static extern int[,] asmAddTwoMatrices(int[,] A, int[,] B);
-
-    private static extern int[,] asmSubTwoMatrices(int[,] A, int[,] B);
-
-    private static extern int[,] asmMulTwoMatrices(int[,] A, int[,] B);
-
-
-    public int[,] executeAsmAddTwoMatrices(int[,]A, int[,]B)
-    {
-        return asmAddTwoMatrices(A, B);
-    }
-
-    public int[,] executeAsmSubTwoMatrices(int[,] A, int[,] B)
-    {
-        return asmSubTwoMatrices(A, B);
-    }
-
-    public int[,] executeAsmMulTwoMatrices(int[,] A, int[,] B)
-    {
-        return asmMulTwoMatrices(A, B);
-    }
-
-}
 
 
 namespace APL_Matrix_Calculator
@@ -93,6 +65,18 @@ namespace APL_Matrix_Calculator
         /// Stores the matrix with results as a 2D array of ints
         /// </summary>
         private int[,] C;
+
+        /// <summary>
+        /// Stores what kind of language we want to use
+        /// 1 - Asm
+        /// 2 - C
+        /// 3 - C++
+        /// 4 - C#
+        /// </summary>
+        public int type;
+
+        public int t;
+
 
         /// <summary>
         /// Constructor
@@ -254,33 +238,8 @@ namespace APL_Matrix_Calculator
 
             }
 
-           
-            if(operation ==1)
-            {
-                //Add
-                C = new int[A_rows, A_col];
-
-                //Here call asm function
-
-                //For now to not get errors
-                C = A;
-            }
-            else if(operation==2)
-            {
-                //Sub
-                C = new int[A_rows, A_col];
-
-                //Here call asm function
-            }
-            else if(operation==3)
-            {
-                //Mul
-                C = new int[A_rows, B_col];
-
-                //Here call asm function
-            }
-
-            resultwindow(sender, e);
+            calloperations(sender, e);
+            
         }
 
         /// <summary>
@@ -293,6 +252,43 @@ namespace APL_Matrix_Calculator
             Result res = new Result();
             res.show(sender, e, C);
             res.ShowDialog();
+        }
+
+
+        private void calloperations(object sender, RoutedEventArgs e)
+        {
+            CallFunctions functions = new CallFunctions();
+            functions.A = A;
+            functions.B = B;
+            functions.type = type;
+
+            if (operation == 1)
+            {
+                //Add
+                C = new int[A_rows, A_col];
+                functions.C = C;
+                functions.callAdd();
+
+            }
+            else if (operation == 2)
+            {
+                //Sub
+                C = new int[A_rows, A_col];
+                functions.C = C;
+                functions.callSub();
+ 
+            }
+            else if (operation == 3)
+            {
+                //Mul
+                C = new int[A_rows, B_col];
+                functions.C = C;
+                functions.callMul();
+
+            }
+
+            t = functions.t;
+            resultwindow(sender, e);
         }
     }
 }
