@@ -5,15 +5,15 @@ asmAddTwoDoubles proc
 	ret
 asmAddTwoDoubles endp
 
-asmAddTwoMatrices proc
+asmAdd proc
 
-asmAddTwoMatrices endp
+asmAdd endp
 
-asmSubTwoMatrices proc
+asmSub proc
 
-asmSubTwoMatrices endp
+asmSub endp
 
-asmMulTwoMatrices proc
+asmMul proc
 
-asmMulTwoMatrices endp
+asmMul endp
 end

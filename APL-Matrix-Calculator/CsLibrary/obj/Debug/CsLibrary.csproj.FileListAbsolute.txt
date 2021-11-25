@@ -1,0 +1,6 @@
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\x64\Debug\CsLibrary.dll
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\x64\Debug\CsLibrary.pdb
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\CsLibrary\obj\Debug\CsLibrary.csproj.AssemblyReference.cache
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\CsLibrary\obj\Debug\CsLibrary.csproj.CoreCompileInputs.cache
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\CsLibrary\obj\Debug\CsLibrary.dll
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\CsLibrary\obj\Debug\CsLibrary.pdb

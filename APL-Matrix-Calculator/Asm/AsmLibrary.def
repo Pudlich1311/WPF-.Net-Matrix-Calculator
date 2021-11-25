@@ -2,6 +2,6 @@ LIBRARY "Asm"
 EXPORTS
 
 asmAddTwoDoubles
-asmAddTwoMatrices
-asmSubTwoMatrices
-asmMulTwoMatrices
+asmAdd
+asmSub
+asmMul

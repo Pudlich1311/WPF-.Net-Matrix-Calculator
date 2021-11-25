@@ -135,17 +135,13 @@ namespace APL_Matrix_Calculator
             {
                 insval.type = 1;
             }
-            else if(Language.Text=="C")
+            else if(Language.Text=="C++")
             {
                 insval.type = 2;
             }
-            else if(Language.Text=="C++")
-            {
-                insval.type = 3;
-            }
             else if(Language.Text=="C#")
             {
-                insval.type = 4;
+                insval.type = 3;
             }
             insval.TextBoxesA(sender, e, A_Rows.SelectedIndex+1, A_Columns.SelectedIndex+1);
             insval.TextBoxesB(sender, e, B_Rows.SelectedIndex + 1, B_Columns.SelectedIndex + 1);

@@ -11,87 +11,43 @@ namespace APL_Matrix_Calculator.Calldll
     {
         [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
 
-        public static extern void cppAdd();
+        public static extern void cppAdd(int[,]A, int[,] B, int[,] C, int rows, int columns);
 
         [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void cppSub();
-
-        [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
-
-        public static extern void cppMul();
+        public static extern void cppSub(int[,] A, int[,] B, int[,] C, int rows, int columns);
 
         [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
 
-        public static extern void initializeA(int rows, int columns);
+        public static extern void cppMul(int[,] A, int[,] B, int[,]C, int rows, int columns, int colsA, int colsB);
 
-        [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void initializeB(int rows, int columns);
 
-        [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void initializeC(int rows, int columns);
 
-        [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void addToA(int number, int rows, int columns);
-
-        [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void addToB(int number, int rows, int columns);
-
-        [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int returnC(int rows, int columns);
-
-        [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int getTime();
-
-        public void executeCppAdd()
+        public int[,] executeCppAdd(int[,] A, int[,] B, int[,] C)
         {
-            cppAdd();
+            int rows = C.GetLength(0);
+            int columns = C.GetLength(1);
+            cppAdd(A, B, C, rows, columns);
+            return C;
         }
 
-        public void executeCppSub()
+        public int[,] executeCppSub(int[,] A, int[,] B, int[,] C)
         {
-
-            cppSub();
+            int rows = C.GetLength(0);
+            int columns = C.GetLength(1);
+           cppSub(A,B,C,rows,columns);
+            return C;
         }
 
-        public void executeCppMul()
+        public int[,] executeCppMul(int[,] A, int[,] B, int[,] C)
         {
-            cppMul();
-        }
-
-        public void executeinitializeA(int rows, int columns)
-        {
-            initializeA(rows, columns);
-        }
-
-        public void executeinitializeB(int rows, int columns)
-        {
-            initializeB(rows, columns);
-        }
-
-        public void executeinitializeC(int rows, int columns)
-        {
-            initializeC(rows, columns);
+            int rows = C.GetLength(0);
+            int columns = C.GetLength(1);
+            int colsA = A.GetLength(1);
+            int colsB = B.GetLength(1);
+            cppMul(A,B,C,rows,columns,colsA,colsB);
+            return C;
         }
 
 
-        public void executeaddToA(int number, int rows, int columns)
-        {
-            addToA(number, rows, columns);
-        }
-
-        public void executeaddToB(int number, int rows, int columns)
-        {
-            addToB(number, rows, columns);
-        }
-
-        public int executereturnC(int rows, int columns)
-        {
-            return returnC(rows, columns);
-        }
-
-        public int executegetTime()
-        {
-            return getTime();
-        }
     }
 }

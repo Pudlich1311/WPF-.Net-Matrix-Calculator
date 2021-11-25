@@ -33,7 +33,7 @@ namespace APL_Matrix_Calculator
         /// <param name="sender">Object on which we perform action</param>
         /// <param name="e">Event control</param>
         /// <param name="C">Result 2D array</param>
-        public void show(object sender, RoutedEventArgs e, int[,] C)
+        public void show(object sender, RoutedEventArgs e, int[,] C, long time, long ticks)
         {
             int rowLength = C.GetLength(0);
             int colLength = C.GetLength(1);
@@ -50,6 +50,8 @@ namespace APL_Matrix_Calculator
                 }
                 Answer.Text += "\n";
             }
+            t.Text += time.ToString() + " ms" + "\n";
+            t.Text += ticks.ToString() + " ticks";
         }
     }
 }

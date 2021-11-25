@@ -7,25 +7,11 @@
 #endif
 
 
-
-extern "C" CPPLIBRAR_API void initializeA(int rows, int columns);
-
-extern "C" CPPLIBRAR_API void initializeB(int rows, int columns);
-
-extern "C" CPPLIBRAR_API void initializeC(int rows, int columns);
-
-extern "C" CPPLIBRAR_API void addToA(int number, int rows, int columns);
-
-extern "C" CPPLIBRAR_API void addToB(int number, int rows, int columns);
-
-extern "C" CPPLIBRAR_API int returnC(int rows, int columns);
-
-extern "C" CPPLIBRAR_API int getTime();
 /*
 * Add two matrices
 */
-extern "C" CPPLIBRAR_API void cppAdd();
+extern "C" CPPLIBRAR_API void cppAdd(int* A, int* B, int* C, int rows, int columns);
    
-extern "C" CPPLIBRAR_API void cppSub();
+extern "C" CPPLIBRAR_API void cppSub(int* A, int* B, int* C, int rows, int columns);
 
-extern "C" CPPLIBRAR_API void cppMul();
+extern "C" CPPLIBRAR_API void cppMul(int* A, int* B, int* C, int rows, int columns, int colsA, int colsB);

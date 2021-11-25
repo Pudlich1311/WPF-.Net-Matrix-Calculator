@@ -40,7 +40,6 @@
         <Button x:Name="Next" Content="Next" HorizontalAlignment="Center" Height="48" Margin="0,0,0,30" VerticalAlignment="Bottom" Width="100" FontSize="24" Click="NextWindow"/>
         <ComboBox x:Name="Language" HorizontalAlignment="Center" Height="30" Margin="0,110,0,0" VerticalAlignment="Center" Width="100">
             <ComboBoxItem Content="Asm"/>
-            <ComboBoxItem Content="C"/>
             <ComboBoxItem Content="C++"/>
             <ComboBoxItem Content="C#"/>
         </ComboBox>

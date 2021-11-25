@@ -69,14 +69,13 @@ namespace APL_Matrix_Calculator
         /// <summary>
         /// Stores what kind of language we want to use
         /// 1 - Asm
-        /// 2 - C
-        /// 3 - C++
-        /// 4 - C#
+        /// 2 - C++
+        /// 3 - C#
         /// </summary>
         public int type;
 
-        public int t;
-
+        long tim;
+        long ticks;
 
         /// <summary>
         /// Constructor
@@ -250,7 +249,7 @@ namespace APL_Matrix_Calculator
         private void resultwindow(object sender, RoutedEventArgs e)
         {
             Result res = new Result();
-            res.show(sender, e, C);
+            res.show(sender, e, C, tim, ticks);
             res.ShowDialog();
         }
 
@@ -287,7 +286,8 @@ namespace APL_Matrix_Calculator
 
             }
 
-            t = functions.t;
+            tim = functions.tim;
+            ticks = functions.ticks;
             resultwindow(sender, e);
         }
     }

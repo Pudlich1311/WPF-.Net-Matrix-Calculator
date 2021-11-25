@@ -10,32 +10,33 @@ namespace APL_Matrix_Calculator
     public unsafe class Asm
     {
         [DllImport("Asm.dll")]
+        public static extern void asmAdd(int[,] A, int[,] B, int[,] C);
 
-
-        public static extern int[,] asmAddTwoMatrices(int[,] A, int[,] B);
 
         [DllImport("Asm.dll")]
+        public static extern void asmSub(int[,] A, int[,] B, int[,] C);
 
-        public static extern int[,] asmSubTwoMatrices(int[,] A, int[,] B);
 
         [DllImport("Asm.dll")]
+        public static extern void asmMul(int[,] A, int[,] B, int[,] C);
 
-        public static extern int[,] asmMulTwoMatrices(int[,] A, int[,] B);
 
-
-        public int[,] executeAsmAddTwoMatrices(int[,] A, int[,] B)
+        public int[,] executeAsmAdd(int[,] A, int[,] B, int[,] C)
         {
-            return asmAddTwoMatrices(A, B);
+            asmAdd(A, B, C);
+            return C;
         }
 
-        public int[,] executeAsmSubTwoMatrices(int[,] A, int[,] B)
+        public int[,] executeAsmSub(int[,] A, int[,] B, int[,] C)
         {
-            return asmSubTwoMatrices(A, B);
+            asmSub(A, B, C);
+            return C;
         }
 
-        public int[,] executeAsmMulTwoMatrices(int[,] A, int[,] B)
+        public int[,] executeAsmMul(int[,] A, int[,] B, int[,] C)
         {
-            return asmMulTwoMatrices(A, B);
+            asmMul(A, B, C);
+            return C;
         }
     }
 }

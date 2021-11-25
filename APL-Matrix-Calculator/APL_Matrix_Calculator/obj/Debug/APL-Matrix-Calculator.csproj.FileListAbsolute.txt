@@ -17,3 +17,4 @@ D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\APL_Matrix_Calcul
 D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\APL_Matrix_Calculator\obj\Debug\Result.baml
 D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\APL_Matrix_Calculator\obj\Debug\InsertValues.g.cs
 D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\APL_Matrix_Calculator\obj\Debug\InsertValues.baml
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\APL_Matrix_Calculator\obj\Debug\APL-Matrix-Calculator.csproj.CopyComplete

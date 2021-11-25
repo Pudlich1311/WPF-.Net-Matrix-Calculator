@@ -12,10 +12,8 @@ namespace APL_Matrix_Calculator
         /// <summary>
         /// Stores what kind of language we want to use
         /// 1 - Asm
-        /// 2 - C
-        /// 3 - C++
-        /// 4 - C#
-        /// 5 - all
+        /// 2 - C++
+        /// 3 - C#
         /// </summary>
         public int type;
 
@@ -26,149 +24,83 @@ namespace APL_Matrix_Calculator
         public int[,] C;
 
         Cpp cpp = new Cpp();
+        Cs cs = new Cs();
+        Asm asm = new Asm();
 
-        public int t;
-
-
+        public long tim;
+        public long ticks;
 
         public int callAdd()
         {
-            if(type ==1)
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            if (type ==1)
             {
-                //Asm
-                Asm asm = new Asm();
-                asm.executeAsmAddTwoMatrices(A, B);
+                //Asm                
+                C = asm.executeAsmAdd(A, B, C);
             }
             else if(type==2)
             {
-                //C
+                //C++
+                C = cpp.executeCppAdd(A,B,C);
             }
             else if(type==3)
             {
-                //C++
-                
-                cpp.executeinitializeA(A.GetLength(0), A.GetLength(1));
-                cpp.executeinitializeB(B.GetLength(0), B.GetLength(1));
-                cpp.executeinitializeC(C.GetLength(0), C.GetLength(1));
-
-                for(int i=0; i < A.GetLength(0); ++i)
-                {
-                    for (int j=0; j <A.GetLength(1); ++j)
-                    {
-                        cpp.executeaddToA(A[i,j], i, j);
-                        cpp.executeaddToB(B[i, j], i, j);
-                    }
-                }
-                cpp.executeCppAdd();
-
-                for(int i=0; i < C.GetLength(0); ++i)
-                {
-                    for(int j=0; j< C.GetLength(1); ++j)
-                    {
-                        C[i, j] = cpp.executereturnC(i, j);
-                    }
-                }
-                t = cpp.executegetTime();
-            }
-            else if(type==4)
-            {
                 //C#
+                C = cs.executeAdd(A,B,C);
             }
 
+            watch.Stop();
+            tim = watch.ElapsedMilliseconds;
+            ticks = watch.ElapsedTicks;
             return 0; 
         }
 
         public int callSub()
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             if (type == 1)
             {
-                //Asm
+                //Asm     
+                C = asm.executeAsmSub(A, B, C);
             }
             else if (type == 2)
             {
-                //C
+                //C++
+                C = cpp.executeCppSub(A,B,C);
+
             }
             else if (type == 3)
             {
-                //C++
-                cpp.executeinitializeA(A.GetLength(0), A.GetLength(1));
-                cpp.executeinitializeB(B.GetLength(0), B.GetLength(1));
-                cpp.executeinitializeC(C.GetLength(0), C.GetLength(1));
-
-                for (int i = 0; i < A.GetLength(0); ++i)
-                {
-                    for (int j = 0; j < A.GetLength(1); ++j)
-                    {
-                        cpp.executeaddToA(A[i, j], i, j);
-                        cpp.executeaddToB(B[i, j], i, j);
-                    }
-                }
-                cpp.executeCppSub();
-
-                for (int i = 0; i < C.GetLength(0); ++i)
-                {
-                    for (int j = 0; j < C.GetLength(1); ++j)
-                    {
-                        C[i, j] = cpp.executereturnC(i, j);
-                    }
-                }
-                t = cpp.executegetTime();
-
-            }
-            else if (type == 4)
-            {
                 //C#
+                C = cs.executeSub(A,B,C);
             }
+            watch.Stop();
+            tim = watch.ElapsedMilliseconds;
+            ticks = watch.ElapsedTicks;
             return 0;
         }
 
         public int callMul()
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             if (type == 1)
             {
                 //Asm
+                C = asm.executeAsmSub(A, B, C);
             }
             else if (type == 2)
             {
-                //C
+                //C++
+                C = cpp.executeCppMul(A,B,C);
             }
             else if (type == 3)
             {
-                //C++
-                cpp.executeinitializeA(A.GetLength(0), A.GetLength(1));
-                cpp.executeinitializeB(B.GetLength(0), B.GetLength(1));
-                cpp.executeinitializeC(C.GetLength(0), C.GetLength(1));
-
-                for (int i = 0; i < A.GetLength(0); ++i)
-                {
-                    for (int j = 0; j < A.GetLength(1); ++j)
-                    {
-                        cpp.executeaddToA(A[i, j], i, j);
-                    }
-                }
-                for (int i = 0; i < B.GetLength(0); ++i)
-                {
-                    for (int j = 0; j < B.GetLength(1); ++j)
-                    {
-                        cpp.executeaddToB(B[i, j], i, j);
-                    }
-                }
-                cpp.executeCppMul();
-
-                for (int i = 0; i < C.GetLength(0); ++i)
-                {
-                    for (int j = 0; j < C.GetLength(1); ++j)
-                    {
-                        C[i, j] = cpp.executereturnC(i, j);
-                    }
-                }
-
-                t = cpp.executegetTime();
-            }
-            else if (type == 4)
-            {
                 //C#
+                C = cs.executeMul(A,B,C);
             }
+            watch.Stop();
+            tim = watch.ElapsedMilliseconds;
+            ticks = watch.ElapsedTicks;
             return 0;
         }
     }
