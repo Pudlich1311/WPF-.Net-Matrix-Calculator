@@ -5,9 +5,9 @@
 #include "CppLibrary.h"
 
 
-int temp;
+float temp;
 
-void cppAdd(int* A, int* B, int*C, int rows, int columns)
+void cppAdd(float* A, float* B, float*C, int rows, int columns)
 {
 
 	for (int i = 0; i < rows; i++)
@@ -17,12 +17,10 @@ void cppAdd(int* A, int* B, int*C, int rows, int columns)
 			C[i * columns + j] = A[i * columns + j] + B[i * columns + j];
 		}
 	}
-
-
 	return;
 }
 
-void cppSub(int* A, int* B, int* C, int rows, int columns)
+void cppSub(float* A, float* B, float* C, int rows, int columns)
 {
 
 	for (int i = 0; i < rows; i++)
@@ -32,13 +30,10 @@ void cppSub(int* A, int* B, int* C, int rows, int columns)
 			C[i*columns+j] = A[i*columns+j] - B[i*columns+j];
 		}
 	}
-
-
 	return;
-
 }
 
-void cppMul(int* A, int* B, int* C, int rows, int columns, int colsA, int colsB)
+void cppMul(float* A, float* B, float* C, int rows, int columns, int colsA, int colsB)
 {
 
 	for (int i = 0; i < rows; ++i)
@@ -53,6 +48,5 @@ void cppMul(int* A, int* B, int* C, int rows, int columns, int colsA, int colsB)
 			C[i*columns+j] = temp;
 		}
 	}
-
 	return;
 }

@@ -8,7 +8,7 @@ namespace CsLibrary
 {
     public class CsLibraryClass
     {
-            public static int[,] CsAdd(int[,] A, int[,] B, int[,] C)
+            public static float[,] CsAdd(float[,] A, float[,] B, float[,] C)
             {
 
                 for (int i = 0; i < A.GetLength(0); ++i)
@@ -21,7 +21,7 @@ namespace CsLibrary
                 return C;
             }
 
-            public static int[,] CsSub(int[,] A, int[,] B, int[,] C)
+            public static float[,] CsSub(float[,] A, float[,] B, float[,] C)
             {
                 for (int i = 0; i < A.GetLength(0); ++i)
                 {
@@ -33,13 +33,13 @@ namespace CsLibrary
                 return C;
             }
 
-            public static int[,] CsMul(int[,] A, int[,] B, int[,] C)
+            public static float[,] CsMul(float[,] A, float[,] B, float[,] C)
             {
                 for (int i = 0; i < A.GetLength(0); i++)
                 {
                     for (int j = 0; j < B.GetLength(1); j++)
                     {
-                        int temp = 0;
+                        float temp = 0;
                         for (int k = 0; k < A.GetLength(1); k++)
                         {
                             temp += A[i, k] * B[k, j];

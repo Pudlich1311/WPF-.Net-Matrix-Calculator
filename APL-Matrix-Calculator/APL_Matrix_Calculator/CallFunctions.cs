@@ -17,90 +17,100 @@ namespace APL_Matrix_Calculator
         /// </summary>
         public int type;
 
-        public int[,] A;
+        public float[,] A;
 
-        public int[,] B;
+        public float[,] B;
 
-        public int[,] C;
+        public float[,] C;
 
         Cpp cpp = new Cpp();
         Cs cs = new Cs();
         Asm asm = new Asm();
 
-        public long tim;
-        public long ticks;
+        public long timeasm, timecpp, timecs;
+        public long tickscpp, ticksasm, tickscs;
 
         public int callAdd()
         {
-            var watch = System.Diagnostics.Stopwatch.StartNew();
             if (type ==1)
             {
                 //Asm                
                 C = asm.executeAsmAdd(A, B, C);
+                timeasm = asm.time;
+                ticksasm = asm.ticks;
             }
             else if(type==2)
             {
                 //C++
+                var watch = System.Diagnostics.Stopwatch.StartNew();
                 C = cpp.executeCppAdd(A,B,C);
+                //timecpp = cpp.time;
+                // tickscpp = cpp.ticks;
+                watch.Stop();
+                timecpp = watch.ElapsedMilliseconds;
+                tickscpp = watch.ElapsedTicks;
             }
             else if(type==3)
             {
                 //C#
                 C = cs.executeAdd(A,B,C);
+                timecs = cs.time;
+                tickscs = cs.ticks;
+
             }
 
-            watch.Stop();
-            tim = watch.ElapsedMilliseconds;
-            ticks = watch.ElapsedTicks;
             return 0; 
         }
 
         public int callSub()
         {
-            var watch = System.Diagnostics.Stopwatch.StartNew();
             if (type == 1)
             {
                 //Asm     
                 C = asm.executeAsmSub(A, B, C);
+                timeasm = asm.time;
+                ticksasm = asm.ticks;
             }
             else if (type == 2)
             {
                 //C++
                 C = cpp.executeCppSub(A,B,C);
-
+                timecpp = cpp.time;
+                tickscpp = cpp.ticks;
             }
             else if (type == 3)
             {
                 //C#
                 C = cs.executeSub(A,B,C);
+                timecs = cs.time;
+                tickscs = cs.ticks;
             }
-            watch.Stop();
-            tim = watch.ElapsedMilliseconds;
-            ticks = watch.ElapsedTicks;
             return 0;
         }
 
         public int callMul()
         {
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-            if (type == 1)
-            {
+            //if (type == 1)
+          //  {
                 //Asm
-                C = asm.executeAsmSub(A, B, C);
-            }
-            else if (type == 2)
-            {
+               // C = asm.executeAsmSub(A, B, C);
+                timeasm = asm.time;
+                ticksasm = asm.ticks;
+          //  }
+          //  else if (type == 2)
+          //  {
                 //C++
                 C = cpp.executeCppMul(A,B,C);
-            }
-            else if (type == 3)
-            {
+                timecpp = cpp.time;
+                tickscpp = cpp.ticks;
+          //  }
+          //  else if (type == 3)
+          //  {
                 //C#
                 C = cs.executeMul(A,B,C);
-            }
-            watch.Stop();
-            tim = watch.ElapsedMilliseconds;
-            ticks = watch.ElapsedTicks;
+                timecs = cs.time;
+                tickscs = cs.ticks;
+          //  }
             return 0;
         }
     }

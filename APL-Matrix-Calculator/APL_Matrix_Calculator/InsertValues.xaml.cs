@@ -54,17 +54,17 @@ namespace APL_Matrix_Calculator
         /// <summary>
         /// Stores the matrix A as a 2D array of ints
         /// </summary>
-        private int[,] A;
+        private float[,] A;
 
         /// <summary>
         /// Stores the matrix B as a 2D array of ints
         /// </summary>
-        private int[,] B;
+        private float[,] B;
 
         /// <summary>
         /// Stores the matrix with results as a 2D array of ints
         /// </summary>
-        private int[,] C;
+        private float[,] C;
 
         /// <summary>
         /// Stores what kind of language we want to use
@@ -74,8 +74,8 @@ namespace APL_Matrix_Calculator
         /// </summary>
         public int type;
 
-        long tim;
-        long ticks;
+        public long timeasm, timecpp, timecs;
+        public long tickscpp, ticksasm, tickscs;
 
         /// <summary>
         /// Constructor
@@ -121,7 +121,7 @@ namespace APL_Matrix_Calculator
         {
             A_rows = rows;
             A_col = columns;
-            A = new int[A_rows,A_col];
+            A = new float[A_rows,A_col];
             for(int i = 3; i >= 0 ; i--)
             {
                 for(int j = 3; j >= 0; j--)
@@ -153,7 +153,7 @@ namespace APL_Matrix_Calculator
         {
             B_rows = rows;
             B_col = columns;
-            B = new int[B_rows, B_col];
+            B = new float[B_rows, B_col];
             for (int i = 3; i >= 0; i--)
             {
                 for (int j = 3; j >= 0; j--)
@@ -195,8 +195,8 @@ namespace APL_Matrix_Calculator
                     if (item is TextBox)
                     {
                         TextBox txt = (TextBox)item;
-                        int Value;
-                        if (!int.TryParse(txt.Text, out Value))
+                        float Value;
+                        if (!float.TryParse(txt.Text, out Value))
                         {
                             MessageBox.Show("Error, character or no value in matrix A");
                             return;
@@ -221,8 +221,8 @@ namespace APL_Matrix_Calculator
                     if (item is TextBox)
                     {
                         TextBox txt = (TextBox)item;
-                        int Value;
-                        if (!int.TryParse(txt.Text, out Value))
+                        float Value;
+                        if (!float.TryParse(txt.Text, out Value))
                         {
                             MessageBox.Show("Error, character or no value in matrix B");
                             return;
@@ -248,8 +248,8 @@ namespace APL_Matrix_Calculator
         /// <param name="e">Event control</param>
         private void resultwindow(object sender, RoutedEventArgs e)
         {
-            Result res = new Result();
-            res.show(sender, e, C, tim, ticks);
+            Result res = new Result(timeasm,timecpp,timecs,ticksasm,tickscpp,tickscs);
+            res.show(sender, e, C);
             res.ShowDialog();
         }
 
@@ -264,7 +264,7 @@ namespace APL_Matrix_Calculator
             if (operation == 1)
             {
                 //Add
-                C = new int[A_rows, A_col];
+                C = new float[A_rows, A_col];
                 functions.C = C;
                 functions.callAdd();
 
@@ -272,7 +272,7 @@ namespace APL_Matrix_Calculator
             else if (operation == 2)
             {
                 //Sub
-                C = new int[A_rows, A_col];
+                C = new float[A_rows, A_col];
                 functions.C = C;
                 functions.callSub();
  
@@ -280,14 +280,19 @@ namespace APL_Matrix_Calculator
             else if (operation == 3)
             {
                 //Mul
-                C = new int[A_rows, B_col];
+                C = new float[A_rows, B_col];
                 functions.C = C;
                 functions.callMul();
 
             }
 
-            tim = functions.tim;
-            ticks = functions.ticks;
+            timeasm = functions.timeasm;
+            timecpp = functions.timecpp;
+            timecs = functions.timecs;
+
+            ticksasm = functions.ticksasm;
+            tickscpp = functions.tickscpp;
+            tickscs = functions.tickscs;
             resultwindow(sender, e);
         }
     }

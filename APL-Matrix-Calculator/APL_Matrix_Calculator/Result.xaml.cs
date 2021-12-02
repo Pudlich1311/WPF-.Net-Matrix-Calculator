@@ -22,18 +22,26 @@ namespace APL_Matrix_Calculator
         /// <summary>
         /// Constructor
         /// </summary>
-        public Result()
+        public Result(long tmasm, long tmcpp, long tmcs, long tiasm, long ticpp, long tics)
         {
             InitializeComponent();
+            timeasm = tmasm;
+            timecpp = tmcpp;
+            timecs = tmcs;
+            ticksasm = tiasm;
+            tickscpp = ticpp;
+            tickscs = tics;
         }
 
+        public long timeasm, timecpp, timecs;
+        public long tickscpp, ticksasm, tickscs;
         /// <summary>
         /// Shows the result 2D array
         /// </summary>
         /// <param name="sender">Object on which we perform action</param>
         /// <param name="e">Event control</param>
         /// <param name="C">Result 2D array</param>
-        public void show(object sender, RoutedEventArgs e, int[,] C, long time, long ticks)
+        public void show(object sender, RoutedEventArgs e, float[,] C)
         {
             int rowLength = C.GetLength(0);
             int colLength = C.GetLength(1);
@@ -50,8 +58,14 @@ namespace APL_Matrix_Calculator
                 }
                 Answer.Text += "\n";
             }
-            t.Text += time.ToString() + " ms" + "\n";
-            t.Text += ticks.ToString() + " ticks";
+            tcpp.Text += timecpp.ToString() + " ms" + "\n";
+            tcpp.Text += tickscpp.ToString() + " ticks";
+
+            tasm.Text += timeasm.ToString() + " ms" + "\n";
+            tasm.Text += ticksasm.ToString() + " ticks";
+
+            tcs.Text += timecs.ToString() + " ms" + "\n";
+            tcs.Text += tickscs.ToString() + " ticks";
         }
     }
 }

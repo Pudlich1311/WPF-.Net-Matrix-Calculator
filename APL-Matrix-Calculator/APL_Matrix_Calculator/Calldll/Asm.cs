@@ -7,35 +7,53 @@ using System.Threading.Tasks;
 
 namespace APL_Matrix_Calculator
 {
+
     public unsafe class Asm
     {
         [DllImport("Asm.dll")]
-        public static extern void asmAdd(int[,] A, int[,] B, int[,] C);
+        public static extern void asmAdd(float[,] A, float[,] B, float[,] C);
 
 
         [DllImport("Asm.dll")]
-        public static extern void asmSub(int[,] A, int[,] B, int[,] C);
+        public static extern void asmSub(float[,] A, float[,] B, float[,] C);
 
 
         [DllImport("Asm.dll")]
-        public static extern void asmMul(int[,] A, int[,] B, int[,] C);
+        public static extern void asmMul(float[,] A, float[,] B, float[,] C);
 
+        public long time;
+        public long ticks;
 
-        public int[,] executeAsmAdd(int[,] A, int[,] B, int[,] C)
+        public float[,] executeAsmAdd(float[,] A, float[,] B, float[,] C)
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             asmAdd(A, B, C);
+
+            watch.Stop();
+            time = watch.ElapsedMilliseconds;
+            ticks = watch.ElapsedTicks;
             return C;
         }
 
-        public int[,] executeAsmSub(int[,] A, int[,] B, int[,] C)
+        public float[,] executeAsmSub(float[,] A, float[,] B, float[,] C)
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             asmSub(A, B, C);
+
+            watch.Stop();
+            time = watch.ElapsedMilliseconds;
+            ticks = watch.ElapsedTicks;
             return C;
         }
 
-        public int[,] executeAsmMul(int[,] A, int[,] B, int[,] C)
+        public float[,] executeAsmMul(float[,] A, float[,] B, float[,] C)
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             asmMul(A, B, C);
+
+            watch.Stop();
+            time = watch.ElapsedMilliseconds;
+            ticks = watch.ElapsedTicks;
             return C;
         }
     }

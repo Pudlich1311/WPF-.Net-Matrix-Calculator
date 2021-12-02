@@ -10,41 +10,62 @@ namespace APL_Matrix_Calculator.Calldll
     public unsafe class Cpp
     {
         [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
-
-        public static extern void cppAdd(int[,]A, int[,] B, int[,] C, int rows, int columns);
-
-        [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void cppSub(int[,] A, int[,] B, int[,] C, int rows, int columns);
+        public static extern void cppAdd(float[,] A, float[,] B, float[,] C, int rows, int columns);
 
         [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void cppSub(float[,] A, float[,] B, float[,] C, int rows, int columns);
 
-        public static extern void cppMul(int[,] A, int[,] B, int[,]C, int rows, int columns, int colsA, int colsB);
+        [DllImport("CppLibrary.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void cppMul(float[,] A, float[,] B, float[,] C, int rows, int columns, int colsA, int colsB);
 
+        public long time;
+        public long ticks;
 
-
-        public int[,] executeCppAdd(int[,] A, int[,] B, int[,] C)
+        public float[,] executeCppAdd(float[,] A, float[,] B, float[,] C)
         {
             int rows = C.GetLength(0);
             int columns = C.GetLength(1);
+
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             cppAdd(A, B, C, rows, columns);
+
+            watch.Stop();
+            time = watch.ElapsedMilliseconds;
+            ticks = watch.ElapsedTicks;
+
             return C;
         }
 
-        public int[,] executeCppSub(int[,] A, int[,] B, int[,] C)
+        public float[,] executeCppSub(float[,] A, float[,] B, float[,] C)
         {
             int rows = C.GetLength(0);
             int columns = C.GetLength(1);
-           cppSub(A,B,C,rows,columns);
+
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            cppSub(A,B,C,rows,columns);
+
+
+            watch.Stop();
+            time = watch.ElapsedMilliseconds;
+            ticks = watch.ElapsedTicks;
+
             return C;
         }
 
-        public int[,] executeCppMul(int[,] A, int[,] B, int[,] C)
+        public float[,] executeCppMul(float[,] A, float[,] B, float[,] C)
         {
             int rows = C.GetLength(0);
             int columns = C.GetLength(1);
             int colsA = A.GetLength(1);
             int colsB = B.GetLength(1);
+
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             cppMul(A,B,C,rows,columns,colsA,colsB);
+
+            watch.Stop();
+            time = watch.ElapsedMilliseconds;
+            ticks = watch.ElapsedTicks;
+
             return C;
         }
 

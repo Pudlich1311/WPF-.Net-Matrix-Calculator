@@ -12,22 +12,41 @@ namespace APL_Matrix_Calculator.Calldll
     {
 
 
-        CsLibraryClass library = new CsLibraryClass();
+       CsLibraryClass library = new CsLibraryClass();
 
+        public long time;
+        public long ticks;
 
-        public int[,] executeAdd(int[,] A, int[,] B, int[,] C)
+        public float[,] executeAdd(float[,] A, float[,] B, float[,] C)
         {
-            return CsLibraryClass.CsAdd(A, B,C);
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            CsLibraryClass.CsAdd(A, B, C);
+            watch.Stop();
+            time = watch.ElapsedMilliseconds;
+            ticks = watch.ElapsedTicks;
+            return C;
         }
 
-        public int[,] executeSub(int[,] A, int[,] B, int[,] C)
+        public float[,] executeSub(float[,] A, float[,] B, float[,] C)
         {
-            return CsLibraryClass.CsSub( A, B, C);
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            CsLibraryClass.CsSub( A, B, C);
+
+            watch.Stop();
+            time = watch.ElapsedMilliseconds;
+            ticks = watch.ElapsedTicks;
+            return C;
         }
 
-        public int[,] executeMul(int[,] A, int[,] B, int[,] C)
+        public float[,] executeMul(float[,] A, float[,] B, float[,] C)
         {
-            return CsLibraryClass.CsMul(A,  B, C);
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            CsLibraryClass.CsMul(A,  B, C);
+
+            watch.Stop();
+            time = watch.ElapsedMilliseconds;
+            ticks = watch.ElapsedTicks;
+            return C;
         }
 
     }

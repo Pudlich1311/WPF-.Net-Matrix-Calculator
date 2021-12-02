@@ -1,4 +1,3 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: Katalog Output nie kończy się ukośnikiem. To wystąpienie kompilacji doda ukośnik, ponieważ jest on niezbędny, aby możliwa była poprawna ocena katalogu Output.
   CppLibrary.cpp
-     Trwa tworzenie biblioteki ..\x64\Debug\CppLibrary.lib i obiektu ..\x64\Debug\CppLibrary.exp
   CppLibrary.vcxproj -> D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\x64\Debug\CppLibrary.dll
