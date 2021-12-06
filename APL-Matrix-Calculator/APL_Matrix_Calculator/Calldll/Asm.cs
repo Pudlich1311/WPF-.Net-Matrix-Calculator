@@ -11,50 +11,161 @@ namespace APL_Matrix_Calculator
     public unsafe class Asm
     {
         [DllImport("Asm.dll")]
-        public static extern void asmAdd(float[,] A, float[,] B, float[,] C);
+        public static extern void asmAdd(float[] a, float[]b, float[]c);
 
 
         [DllImport("Asm.dll")]
-        public static extern void asmSub(float[,] A, float[,] B, float[,] C);
+        public static extern void asmSub(float[] A, float[] B, float[] C);
 
 
         [DllImport("Asm.dll")]
-        public static extern void asmMul(float[,] A, float[,] B, float[,] C);
+        public static extern void asmMul(float[] A, float[] B, float[] C);
 
+        [DllImport("Asm.dll")]
+        public static extern void asmDummy();
+
+        /// <summary>
+        /// time of the function
+        /// </summary>
         public long time;
-        public long ticks;
 
+        /// <summary>
+        /// Function to call addition
+        /// </summary>
+        /// <param name="A">A matrix</param>
+        /// <param name="B">B matrix</param>
+        /// <param name="C">C matrix</param>
+        /// <returns>Matrix with result</returns>
         public float[,] executeAsmAdd(float[,] A, float[,] B, float[,] C)
         {
+            asmDummy();
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            asmAdd(A, B, C);
+
+            float[,] Ctemp = C;
+
+            float[] a = new float[A.GetLength(1)];
+            float[] b = new float[B.GetLength(1)];
+            float[] c = new float[Ctemp.GetLength(1)];
+
+            for (int i = 0; i < A.GetLength(0); i++)
+            {
+               for (int j = 0; j < A.GetLength(1); j++)
+               {
+                  a[j] = A[i, j];
+                  b[j] = B[i, j];
+                  c[j] = Ctemp[i, j];
+               }
+
+               asmAdd(a,b,c);
+
+               for (int k = 0; k < C.GetLength(1); k++)
+               {
+                  Ctemp[i, k] = c[k];
+               }
+            }
 
             watch.Stop();
             time = watch.ElapsedMilliseconds;
-            ticks = watch.ElapsedTicks;
-            return C;
+
+            return Ctemp;
         }
 
+        /// <summary>
+        /// Function to call substraction
+        /// </summary>
+        /// <param name="A">A matrix</param>
+        /// <param name="B">B matrix</param>
+        /// <param name="C">C matrix</param>
+        /// <returns>Matrix with result</returns>
         public float[,] executeAsmSub(float[,] A, float[,] B, float[,] C)
         {
+            asmDummy();
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            asmSub(A, B, C);
+
+            float[,] Ctemp = C;
+            float[] a = new float[A.GetLength(1)];
+            float[] b = new float[B.GetLength(1)];
+            float[] c = new float[C.GetLength(1)];
+
+            for (int i = 0; i < A.GetLength(0); i++)
+            {
+                for (int j = 0; j < A.GetLength(1); j++)
+                {
+                    a[j] = A[i, j];
+                    b[j] = B[i, j];
+                    c[j] = Ctemp[i, j];
+                }
+
+                asmSub(a, b, c);
+
+                for (int k = 0; k < C.GetLength(1); k++)
+                {
+                    Ctemp[i, k] = c[k];
+                }
+            }
 
             watch.Stop();
             time = watch.ElapsedMilliseconds;
-            ticks = watch.ElapsedTicks;
-            return C;
+
+            return Ctemp;
         }
 
+        /// <summary>
+        /// Function to call multiplication
+        /// </summary>
+        /// <param name="A">A matrix</param>
+        /// <param name="B">B matrix</param>
+        /// <param name="C">C matrix</param>
+        /// <returns>Matrix with result</returns>
         public float[,] executeAsmMul(float[,] A, float[,] B, float[,] C)
         {
+            asmDummy();
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            asmMul(A, B, C);
+
+            float[,] Ctemp = C;
+            float[] a = new float[A.GetLength(1)];
+            float[] b = new float[B.GetLength(0)];
+            float[] c = new float[6];
+            int rows = Ctemp.GetLength(0);
+            int columns = Ctemp.GetLength(1);
+            int k = 0;
+
+                for (int i = 0; i < rows; ++i)
+                {
+
+                    for (int x = 0; x < A.GetLength(1); x++)
+                    {
+                        a[x] = A[i, x];
+
+                    }
+                    for (int j = 0; j < columns; ++j)
+                    {
+
+                        for (int y = 0; y < B.GetLength(0); y++)
+                        {
+                            b[y] = B[y, j];
+
+                        }
+                        asmMul(a, b, c);
+                        
+                        
+                        Ctemp[i, k] = c[0];
+                        k++;
+                        if (k >= C.GetLength(1))
+                        {
+                            k = 0;
+                        }
+                    }
+                }
+               
 
             watch.Stop();
             time = watch.ElapsedMilliseconds;
-            ticks = watch.ElapsedTicks;
-            return C;
+
+            return Ctemp;
         }
+
+
     }
+    
 }

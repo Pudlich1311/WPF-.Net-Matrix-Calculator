@@ -50,3 +50,34 @@ void cppMul(float* A, float* B, float* C, int rows, int columns, int colsA, int 
 	}
 	return;
 }
+
+
+void dummy(float* A, float* B, float* C)
+{
+	int dum = 0;
+	dum += 1;
+}
+
+void callAdd(float* A, float* B, float* C, int rows, int columns)
+{
+	for (int i = 0; i < 150000; i++)
+	{
+		cppAdd(A, B, C, rows, columns);
+	}
+}
+
+void callSub(float* A, float* B, float* C, int rows, int columns)
+{
+	for (int i = 0; i < 150000; i++)
+	{
+		cppSub(A, B, C, rows, columns);
+	}
+}
+
+void callMul(float* A, float* B, float* C, int rows, int columns, int colsA, int colsB)
+{
+	for (int i = 0; i < 150000; i++)
+	{
+		cppMul(A, B, C, rows, columns,colsA, colsB);
+	}
+}

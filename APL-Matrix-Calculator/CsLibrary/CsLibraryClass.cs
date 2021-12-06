@@ -8,7 +8,7 @@ namespace CsLibrary
 {
     public class CsLibraryClass
     {
-            public static float[,] CsAdd(float[,] A, float[,] B, float[,] C)
+            public static float[,] csAdd(float[,] A, float[,] B, float[,] C)
             {
 
                 for (int i = 0; i < A.GetLength(0); ++i)
@@ -21,7 +21,7 @@ namespace CsLibrary
                 return C;
             }
 
-            public static float[,] CsSub(float[,] A, float[,] B, float[,] C)
+            public static float[,] csSub(float[,] A, float[,] B, float[,] C)
             {
                 for (int i = 0; i < A.GetLength(0); ++i)
                 {
@@ -33,7 +33,7 @@ namespace CsLibrary
                 return C;
             }
 
-            public static float[,] CsMul(float[,] A, float[,] B, float[,] C)
+            public static float[,] csMul(float[,] A, float[,] B, float[,] C)
             {
                 for (int i = 0; i < A.GetLength(0); i++)
                 {
@@ -50,6 +50,31 @@ namespace CsLibrary
                 return C;
             }
 
-        }
+            public static float[,] callAdd(float[,] A, float[,] B, float[,] C)
+            {
+                   for(int i =0; i<150000; i++)
+                   {
+                        C= csAdd(A, B, C);
+                   }
+                    return C;
+            }
+            public static float[,] callSub(float[,] A, float[,] B, float[,] C)
+            {
+                for (int i = 0; i < 150000; i++)
+                {
+                    C = csSub(A, B, C);
+                }
+                return C;
+            }
+            public static float[,] callMul(float[,] A, float[,] B, float[,] C)
+            {
+                for (int i = 0; i < 150000; i++)
+                {
+                    C = csMul(A, B, C);
+                }
+                return C;
+            }
+
     }
+}
 

@@ -11,42 +11,71 @@ namespace APL_Matrix_Calculator.Calldll
     public unsafe class Cs
     {
 
-
+        /// <summary>
+        /// Instance of C# dll library
+        /// </summary>
        CsLibraryClass library = new CsLibraryClass();
 
+        /// <summary>
+        /// Time spent on function
+        /// </summary>
         public long time;
-        public long ticks;
 
+
+        /// <summary>
+        /// Function to call addition
+        /// </summary>
+        /// <param name="A">A matrix</param>
+        /// <param name="B">B matrix</param>
+        /// <param name="C">C matrix</param>
+        /// <returns>Matrix with result</returns>
         public float[,] executeAdd(float[,] A, float[,] B, float[,] C)
         {
+            float[,] Ctemp = C;
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            CsLibraryClass.CsAdd(A, B, C);
+            CsLibraryClass.callAdd(A, B, Ctemp);
             watch.Stop();
             time = watch.ElapsedMilliseconds;
-            ticks = watch.ElapsedTicks;
-            return C;
+
+            return Ctemp;
         }
 
+        /// <summary>
+        /// Function to call substraction
+        /// </summary>
+        /// <param name="A">A matrix</param>
+        /// <param name="B">B matrix</param>
+        /// <param name="C">C matrix</param>
+        /// <returns>Matrix with result</returns>
         public float[,] executeSub(float[,] A, float[,] B, float[,] C)
         {
+            float[,] Ctemp = C;
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            CsLibraryClass.CsSub( A, B, C);
+            CsLibraryClass.callSub( A, B, Ctemp);
 
             watch.Stop();
             time = watch.ElapsedMilliseconds;
-            ticks = watch.ElapsedTicks;
-            return C;
+
+            return Ctemp;
         }
 
+        /// <summary>
+        /// Function to call multiplication
+        /// </summary>
+        /// <param name="A">A matrix</param>
+        /// <param name="B">B matrix</param>
+        /// <param name="C">C matrix</param>
+        /// <returns>Matrix with result</returns>
         public float[,] executeMul(float[,] A, float[,] B, float[,] C)
         {
+            float[,] Ctemp = C;
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            CsLibraryClass.CsMul(A,  B, C);
+            CsLibraryClass.callMul(A,  B, Ctemp);
 
             watch.Stop();
             time = watch.ElapsedMilliseconds;
-            ticks = watch.ElapsedTicks;
-            return C;
+
+            return Ctemp;
         }
 
     }

@@ -1,7 +1,7 @@
 LIBRARY "Asm"
 EXPORTS
 
-asmAddTwoDoubles
 asmAdd
 asmSub
 asmMul
+asmDummy

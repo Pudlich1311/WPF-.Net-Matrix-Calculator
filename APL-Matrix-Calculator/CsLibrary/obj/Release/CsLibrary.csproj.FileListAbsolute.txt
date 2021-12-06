@@ -1,0 +1,8 @@
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\CsLibrary\bin\Release\CsLibrary.dll
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\CsLibrary\bin\Release\CsLibrary.pdb
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\CsLibrary\obj\Release\CsLibrary.csproj.AssemblyReference.cache
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\CsLibrary\obj\Release\CsLibrary.csproj.CoreCompileInputs.cache
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\CsLibrary\obj\Release\CsLibrary.dll
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\CsLibrary\obj\Release\CsLibrary.pdb
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\x64\Release\CsLibrary.dll
+D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\x64\Release\CsLibrary.pdb

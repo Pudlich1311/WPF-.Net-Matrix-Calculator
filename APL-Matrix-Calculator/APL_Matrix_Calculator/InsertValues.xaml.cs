@@ -75,7 +75,6 @@ namespace APL_Matrix_Calculator
         public int type;
 
         public long timeasm, timecpp, timecs;
-        public long tickscpp, ticksasm, tickscs;
 
         /// <summary>
         /// Constructor
@@ -122,9 +121,9 @@ namespace APL_Matrix_Calculator
             A_rows = rows;
             A_col = columns;
             A = new float[A_rows,A_col];
-            for(int i = 3; i >= 0 ; i--)
+            for(int i = 4; i >= 0 ; i--)
             {
-                for(int j = 3; j >= 0; j--)
+                for(int j = 4; j >= 0; j--)
                 {
                     if((j >= columns && i >= rows) || (j <= columns && i >= rows) || (j >= columns && i <= rows))
                     {
@@ -154,9 +153,9 @@ namespace APL_Matrix_Calculator
             B_rows = rows;
             B_col = columns;
             B = new float[B_rows, B_col];
-            for (int i = 3; i >= 0; i--)
+            for (int i = 4; i >= 0; i--)
             {
-                for (int j = 3; j >= 0; j--)
+                for (int j = 4; j >= 0; j--)
                 {
                     if ((j >= columns && i >= rows) || (j <= columns && i >= rows) || (j >= columns && i <= rows))
                     {
@@ -248,7 +247,7 @@ namespace APL_Matrix_Calculator
         /// <param name="e">Event control</param>
         private void resultwindow(object sender, RoutedEventArgs e)
         {
-            Result res = new Result(timeasm,timecpp,timecs,ticksasm,tickscpp,tickscs);
+            Result res = new Result(timeasm,timecpp,timecs);
             res.show(sender, e, C);
             res.ShowDialog();
         }
@@ -290,9 +289,6 @@ namespace APL_Matrix_Calculator
             timecpp = functions.timecpp;
             timecs = functions.timecs;
 
-            ticksasm = functions.ticksasm;
-            tickscpp = functions.tickscpp;
-            tickscs = functions.tickscs;
             resultwindow(sender, e);
         }
     }

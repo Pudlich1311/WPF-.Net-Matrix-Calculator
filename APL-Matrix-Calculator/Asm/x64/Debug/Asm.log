@@ -1,1 +1,5 @@
-﻿  Asm.vcxproj -> D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\x64\Debug\Asm.dll
+﻿  Assembling AsmLibrary.asm...
+LINK : warning LNK4075: zignorowano opcję „/INCREMENTAL” z powodu określenia opcji „/LTCG”
+     Trwa tworzenie biblioteki D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\x64\Debug\Asm.lib i obiektu D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\x64\Debug\Asm.exp
+  LINK : określono opcję /LTCG, lecz generowanie kodu nie było wymagane; usuń opcję /LTCG z wiersza polecenia konsolidatora w celu podwyższenia wydajności konsolidatora
+  Asm.vcxproj -> D:\Programowanie\Assembler\sem 5\Project\APL-Matrix-Calculator\x64\Debug\Asm.dll

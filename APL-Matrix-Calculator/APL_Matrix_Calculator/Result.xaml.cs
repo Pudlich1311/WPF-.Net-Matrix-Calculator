@@ -22,15 +22,12 @@ namespace APL_Matrix_Calculator
         /// <summary>
         /// Constructor
         /// </summary>
-        public Result(long tmasm, long tmcpp, long tmcs, long tiasm, long ticpp, long tics)
+        public Result(long tmasm, long tmcpp, long tmcs)
         {
             InitializeComponent();
             timeasm = tmasm;
             timecpp = tmcpp;
             timecs = tmcs;
-            ticksasm = tiasm;
-            tickscpp = ticpp;
-            tickscs = tics;
         }
 
         public long timeasm, timecpp, timecs;
@@ -59,13 +56,10 @@ namespace APL_Matrix_Calculator
                 Answer.Text += "\n";
             }
             tcpp.Text += timecpp.ToString() + " ms" + "\n";
-            tcpp.Text += tickscpp.ToString() + " ticks";
 
             tasm.Text += timeasm.ToString() + " ms" + "\n";
-            tasm.Text += ticksasm.ToString() + " ticks";
 
             tcs.Text += timecs.ToString() + " ms" + "\n";
-            tcs.Text += tickscs.ToString() + " ticks";
         }
     }
 }
