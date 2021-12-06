@@ -81,7 +81,6 @@ namespace APL_Matrix_Calculator
                 timeasm = asm.time;
 
                 //C++
-                cpp.executeDummy(A,B,C);
                 Ccpp = cpp.executeCppAdd(A,B,C);
                 timecpp = cpp.time;
 

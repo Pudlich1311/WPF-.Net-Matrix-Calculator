@@ -51,8 +51,8 @@ namespace APL_Matrix_Calculator
             {
                for (int j = 0; j < A.GetLength(1); j++)
                {
-                  a[j] = A[i, j];
-                  b[j] = B[i, j];
+                     a[j] = A[i, j];
+                      b[j] = B[i, j];
                   c[j] = Ctemp[i, j];
                }
 
@@ -130,33 +130,38 @@ namespace APL_Matrix_Calculator
             int columns = Ctemp.GetLength(1);
             int k = 0;
 
-                for (int i = 0; i < rows; ++i)
+            for (int i = 0; i < rows; ++i)
+            {
+
+                for (int x = 0; x < A.GetLength(1); x++)
+                {
+                    a[x] = A[i, x];
+                   
+                }
+                for (int j = 0; j < columns; ++j)
                 {
 
-                    for (int x = 0; x < A.GetLength(1); x++)
+                    for (int y = 0; y < B.GetLength(0); y++)
                     {
-                        a[x] = A[i, x];
+                        b[y] = B[y, j];
 
                     }
-                    for (int j = 0; j < columns; ++j)
+                    asmMul(a, b, c);
+                        
+                    //a lazy solution for 5x5 matrix
+                    if(A.GetLength(1)==5)
                     {
-
-                        for (int y = 0; y < B.GetLength(0); y++)
-                        {
-                            b[y] = B[y, j];
-
-                        }
-                        asmMul(a, b, c);
-                        
-                        
-                        Ctemp[i, k] = c[0];
-                        k++;
-                        if (k >= C.GetLength(1))
-                        {
-                            k = 0;
-                        }
+                        c[0] += c[4];
                     }
+                    Ctemp[i, k] = c[0];
+                    k++;
+                    if (k >= C.GetLength(1))
+                    {
+                        k = 0;
+                    }
+
                 }
+            }
                
 
             watch.Stop();
