@@ -75,30 +75,36 @@ namespace APL_Matrix_Calculator
         /// <returns>alwaysz 0</returns>
         public int callAdd()
         {
-
+                     Casm = new float[C.GetLength(0), C.GetLength(1)];
+            Ccpp = new float[C.GetLength(0), C.GetLength(1)];
+            Ccs = new float[C.GetLength(0), C.GetLength(1)];
+            Array.Copy(C, Casm, C.Length);
+            Array.Copy(C, Ccpp, C.Length);
+            Array.Copy(C, Ccs, C.Length);
                 //Asm                
-                Casm = asm.executeAsmAdd(A, B, C);
+                Casm = asm.executeAsmAdd(A, B, Casm);
                 timeasm = asm.time;
 
                 //C++
-                Ccpp = cpp.executeCppAdd(A,B,C);
+                Ccpp = cpp.executeCppAdd(A,B,Ccpp);
                 timecpp = cpp.time;
 
                 //C#
-                Ccs = cs.executeAdd(A,B,C);
+                Ccs = cs.executeAdd(A,B,Ccs);
                 timecs = cs.time;
 
-            if(type ==1)
+            if (type == 1)
             {
-                C = Casm;
+                Array.Copy(Casm, C, C.Length);
+
             }
-            else if (type ==2)
+            else if (type == 2)
             {
-                C = Ccpp;
+                Array.Copy(Ccpp, C, C.Length);
             }
-            else if(type ==3)
+            else if (type == 3)
             {
-                C = Ccs;
+                Array.Copy(Ccs, C, C.Length);
             }
 
 
@@ -112,31 +118,37 @@ namespace APL_Matrix_Calculator
         /// <returns>always 0</returns>
         public int callSub()
         {
-            
+            Casm = new float[C.GetLength(0), C.GetLength(1)];
+            Ccpp = new float[C.GetLength(0), C.GetLength(1)];
+            Ccs = new float[C.GetLength(0), C.GetLength(1)];
+            Array.Copy(C, Casm, C.Length);
+            Array.Copy(C, Ccpp, C.Length);
+            Array.Copy(C, Ccs, C.Length);
 
-                //Asm     
-                Casm = asm.executeAsmSub(A, B, C);
+            //Asm     
+            Casm = asm.executeAsmSub(A, B, Casm);
                 timeasm = asm.time;
 
                 //C++
-                Ccpp = cpp.executeCppSub(A,B,C);
+                Ccpp = cpp.executeCppSub(A,B,Ccpp);
                 timecpp = cpp.time;
 
                 //C#
-                Ccs = cs.executeSub(A,B,C);
+                Ccs = cs.executeSub(A,B,Ccs);
                 timecs = cs.time;
 
             if (type == 1)
             {
-                C = Casm;
+                Array.Copy(Casm, C, C.Length);
+
             }
             else if (type == 2)
             {
-                C = Ccpp;
+                Array.Copy(Ccpp, C, C.Length);
             }
             else if (type == 3)
             {
-                C = Ccs;
+                Array.Copy(Ccs, C, C.Length);
             }
             return 0;
         }
@@ -148,30 +160,36 @@ namespace APL_Matrix_Calculator
         /// <returns>always 0</returns>
         public int callMul()
         {
-
+            Casm = new float[C.GetLength(0), C.GetLength(1)];
+            Ccpp = new float[C.GetLength(0), C.GetLength(1)];
+            Ccs = new float[C.GetLength(0), C.GetLength(1)];
+            Array.Copy(C, Casm, C.Length);
+            Array.Copy(C, Ccpp, C.Length);
+            Array.Copy(C, Ccs, C.Length);
             //Asm
-          Casm = asm.executeAsmMul(A, B, C);
+            Casm = asm.executeAsmMul(A, B, Casm);
             timeasm = asm.time;
 
             //C++
-            Ccpp = cpp.executeCppMul(A,B,C);
+            Ccpp = cpp.executeCppMul(A,B,Ccpp);
             timecpp = cpp.time;
 
                 //C#
-              Ccs = cs.executeMul(A,B,C);
+              Ccs = cs.executeMul(A,B,Ccs);
                 timecs = cs.time;
 
             if (type == 1)
             {
-                C = Casm;
+                Array.Copy(Casm, C, C.Length);
+
             }
             else if (type == 2)
             {
-                C = Ccpp;
+                Array.Copy(Ccpp, C, C.Length);
             }
             else if (type == 3)
             {
-                C = Ccs;
+                Array.Copy(Ccs, C, C.Length);
             }
             return 0;
         }

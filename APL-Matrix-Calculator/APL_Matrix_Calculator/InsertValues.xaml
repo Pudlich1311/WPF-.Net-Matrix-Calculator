@@ -5,43 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APL_Matrix_Calculator"
         mc:Ignorable="d"
-        Title="Matrix Calculator" Height="450" Width="900">
+        Title="Matrix Calculator" Height="550" Width="1200">
     <Grid x:Name="Calc">
-        <TextBlock HorizontalAlignment="Left" Height="70" Margin="180,20,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Width="40" FontSize="48"/>
-        <TextBlock HorizontalAlignment="Left" Height="70" Margin="648,20,0,0" TextWrapping="Wrap" Text="B" VerticalAlignment="Top" Width="40" FontSize="48"/>
-        <TextBlock x:Name="Operation" HorizontalAlignment="Center" Height="49" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="52" FontSize="48"/>
-        <TextBox x:Name="a00" HorizontalAlignment="Left" Height="30" Margin="26,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a01" HorizontalAlignment="Left" Height="30" Margin="116,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a02" HorizontalAlignment="Left" Height="30" Margin="206,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a03" HorizontalAlignment="Left" Height="30" Margin="296,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a10" HorizontalAlignment="Left" Height="30" Margin="26,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a11" HorizontalAlignment="Left" Height="30" Margin="116,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a12" HorizontalAlignment="Left" Height="30" Margin="206,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a13" HorizontalAlignment="Left" Height="30" Margin="296,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a20" HorizontalAlignment="Left" Height="30" Margin="26,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a21" HorizontalAlignment="Left" Height="30" Margin="116,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a22" HorizontalAlignment="Left" Height="30" Margin="206,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a23" HorizontalAlignment="Left" Height="30" Margin="296,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a30" HorizontalAlignment="Left" Height="30" Margin="26,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a31" HorizontalAlignment="Left" Height="30" Margin="116,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a32" HorizontalAlignment="Left" Height="30" Margin="206,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="a33" HorizontalAlignment="Left" Height="30" Margin="296,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b00" HorizontalAlignment="Left" Height="30" Margin="502,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b01" HorizontalAlignment="Left" Height="30" Margin="592,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b02" HorizontalAlignment="Left" Height="30" Margin="682,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b03" HorizontalAlignment="Left" Height="30" Margin="772,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b10" HorizontalAlignment="Left" Height="30" Margin="502,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b11" HorizontalAlignment="Left" Height="30" Margin="592,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b12" HorizontalAlignment="Left" Height="30" Margin="682,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b13" HorizontalAlignment="Left" Height="30" Margin="772,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b20" HorizontalAlignment="Left" Height="30" Margin="502,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b21" HorizontalAlignment="Left" Height="30" Margin="592,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b22" HorizontalAlignment="Left" Height="30" Margin="682,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b23" HorizontalAlignment="Left" Height="30" Margin="772,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b30" HorizontalAlignment="Left" Height="30" Margin="502,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b31" HorizontalAlignment="Left" Height="30" Margin="592,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b32" HorizontalAlignment="Left" Height="30" Margin="682,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
-        <TextBox x:Name="b33" HorizontalAlignment="Left" Height="30" Margin="772,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Height="70" Margin="264,20,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Width="40" FontSize="48"/>
+        <TextBlock HorizontalAlignment="Left" Height="70" Margin="885,20,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="B" VerticalAlignment="Top" Width="40" FontSize="48"/>
+        <TextBlock x:Name="Operation" HorizontalAlignment="Center" Height="49" Margin="0" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="52" FontSize="48"/>
+        <TextBox x:Name="a00" TabIndex="1" HorizontalAlignment="Left" Height="30" Margin="26,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a01" TabIndex="2" HorizontalAlignment="Left" Height="30" Margin="116,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a02" TabIndex="3" HorizontalAlignment="Left" Height="30" Margin="206,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a03" TabIndex="4" HorizontalAlignment="Left" Height="30" Margin="296,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a10" TabIndex="7" HorizontalAlignment="Left" Height="30" Margin="26,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a11" TabIndex="8" HorizontalAlignment="Left" Height="30" Margin="116,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a12" TabIndex="9" HorizontalAlignment="Left" Height="30" Margin="206,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a13" TabIndex="10" HorizontalAlignment="Left" Height="30" Margin="296,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a20" TabIndex="13" HorizontalAlignment="Left" Height="30" Margin="26,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a21" TabIndex="14" HorizontalAlignment="Left" Height="30" Margin="116,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a22" TabIndex="15" HorizontalAlignment="Left" Height="30" Margin="206,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a23" TabIndex="16" HorizontalAlignment="Left" Height="30" Margin="296,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a30" TabIndex="19" HorizontalAlignment="Left" Height="30" Margin="26,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a31" TabIndex="20" HorizontalAlignment="Left" Height="30" Margin="116,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a32" TabIndex="21" HorizontalAlignment="Left" Height="30" Margin="206,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a33" TabIndex="22" HorizontalAlignment="Left" Height="30" Margin="296,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a04" TabIndex="5" HorizontalAlignment="Left" Height="30" Margin="388,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a14" TabIndex="11" HorizontalAlignment="Left" Height="30" Margin="388,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a24" TabIndex="17" HorizontalAlignment="Left" Height="30" Margin="388,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a34" TabIndex="23" HorizontalAlignment="Left" Height="30" Margin="388,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a40" TabIndex="25" HorizontalAlignment="Left" Height="30" Margin="26,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a41" TabIndex="26" HorizontalAlignment="Left" Height="30" Margin="116,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a42" TabIndex="27" HorizontalAlignment="Left" Height="30" Margin="206,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a43" TabIndex="28" HorizontalAlignment="Left" Height="30" Margin="296,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a44" TabIndex="29" HorizontalAlignment="Left" Height="30" Margin="388,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+
+        <TextBox x:Name="b00" TabIndex="37" HorizontalAlignment="Left" Height="30" Margin="638,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b01" TabIndex="38" HorizontalAlignment="Left" Height="30" Margin="728,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b02" TabIndex="39" HorizontalAlignment="Left" Height="30" Margin="818,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b03" TabIndex="40" HorizontalAlignment="Left" Height="30" Margin="908,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b10" TabIndex="43" HorizontalAlignment="Left" Height="30" Margin="638,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b11" TabIndex="44" HorizontalAlignment="Left" Height="30" Margin="728,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b12" TabIndex="45" HorizontalAlignment="Left" Height="30" Margin="818,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b13" TabIndex="46" HorizontalAlignment="Left" Height="30" Margin="908,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b20" TabIndex="49" HorizontalAlignment="Left" Height="30" Margin="638,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b21" TabIndex="50" HorizontalAlignment="Left" Height="30" Margin="728,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b22" TabIndex="51" HorizontalAlignment="Left" Height="30" Margin="818,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b23" TabIndex="52" HorizontalAlignment="Left" Height="30" Margin="908,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b30" TabIndex="55" HorizontalAlignment="Left" Height="30" Margin="638,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b31" TabIndex="56" HorizontalAlignment="Left" Height="30" Margin="728,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b32" TabIndex="57" HorizontalAlignment="Left" Height="30" Margin="818,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b33" TabIndex="58" HorizontalAlignment="Left" Height="30" Margin="908,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b04" TabIndex="41" HorizontalAlignment="Left" Height="30" Margin="1004,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b14" TabIndex="47" HorizontalAlignment="Left" Height="30" Margin="1004,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b24" TabIndex="53" HorizontalAlignment="Left" Height="30" Margin="1004,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b34" TabIndex="59" HorizontalAlignment="Left" Height="30" Margin="1004,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b40" TabIndex="61" HorizontalAlignment="Left" Height="30" Margin="638,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b41" TabIndex="62" HorizontalAlignment="Left" Height="30" Margin="728,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b42" TabIndex="63" HorizontalAlignment="Left" Height="30" Margin="818,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b43" TabIndex="64" HorizontalAlignment="Left" Height="30" Margin="908,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b44" TabIndex="65" HorizontalAlignment="Left" Height="30" Margin="1004,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
         <Button x:Name="Next" Content="Calculate" HorizontalAlignment="Center" Height="68" Margin="2,0,0,10" Width="158" VerticalAlignment="Bottom" FontSize="36" Click="Next_Click"/>
+        <TextBox x:Name="a05" TabIndex="6" HorizontalAlignment="Left" Height="30" Margin="482,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a15" TabIndex="12" HorizontalAlignment="Left" Height="30" Margin="482,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a25" TabIndex="18" HorizontalAlignment="Left" Height="30" Margin="482,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a35" TabIndex="24" HorizontalAlignment="Left" Height="30" Margin="482,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a45" TabIndex="30" HorizontalAlignment="Left" Height="30" Margin="482,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a50" TabIndex="31" HorizontalAlignment="Left" Height="30" Margin="26,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a51" TabIndex="32" HorizontalAlignment="Left" Height="30" Margin="116,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a52" TabIndex="33" HorizontalAlignment="Left" Height="30" Margin="206,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a53" TabIndex="34" HorizontalAlignment="Left" Height="30" Margin="296,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a54" TabIndex="35" HorizontalAlignment="Left" Height="30" Margin="388,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="a55" TabIndex="36" HorizontalAlignment="Left" Height="30" Margin="482,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b50" TabIndex="67" HorizontalAlignment="Left" Height="30" Margin="638,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b51" TabIndex="68" HorizontalAlignment="Left" Height="30" Margin="728,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b52" TabIndex="69" HorizontalAlignment="Left" Height="30" Margin="818,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b53" TabIndex="70" HorizontalAlignment="Left" Height="30" Margin="908,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b54" TabIndex="71" HorizontalAlignment="Left" Height="30" Margin="1004,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b05" TabIndex="42" HorizontalAlignment="Left" Height="30" Margin="1092,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b15" TabIndex="48" HorizontalAlignment="Left" Height="30" Margin="1092,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b25" TabIndex="54" HorizontalAlignment="Left" Height="30" Margin="1092,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b35" TabIndex="60" HorizontalAlignment="Left" Height="30" Margin="1092,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b45" TabIndex="66" HorizontalAlignment="Left" Height="30" Margin="1092,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+        <TextBox x:Name="b55" TabIndex="72" HorizontalAlignment="Left" Height="30" Margin="1092,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="18"/>
+
+
     </Grid>
 </Window>

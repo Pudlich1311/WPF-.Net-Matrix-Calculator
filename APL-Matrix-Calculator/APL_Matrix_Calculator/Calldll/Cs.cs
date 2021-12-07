@@ -29,9 +29,8 @@ namespace APL_Matrix_Calculator.Calldll
         /// <param name="B">B matrix</param>
         /// <param name="C">C matrix</param>
         /// <returns>Matrix with result</returns>
-        public float[,] executeAdd(float[,] A, float[,] B, float[,] C)
+        public float[,] executeAdd(float[,] A, float[,] B, float[,] Ctemp)
         {
-            float[,] Ctemp = C;
             var watch = System.Diagnostics.Stopwatch.StartNew();
             CsLibraryClass.callAdd(A, B, Ctemp);
             watch.Stop();
@@ -47,9 +46,9 @@ namespace APL_Matrix_Calculator.Calldll
         /// <param name="B">B matrix</param>
         /// <param name="C">C matrix</param>
         /// <returns>Matrix with result</returns>
-        public float[,] executeSub(float[,] A, float[,] B, float[,] C)
+        public float[,] executeSub(float[,] A, float[,] B, float[,] Ctemp)
         {
-            float[,] Ctemp = C;
+
             var watch = System.Diagnostics.Stopwatch.StartNew();
             CsLibraryClass.callSub( A, B, Ctemp);
 
@@ -66,9 +65,8 @@ namespace APL_Matrix_Calculator.Calldll
         /// <param name="B">B matrix</param>
         /// <param name="C">C matrix</param>
         /// <returns>Matrix with result</returns>
-        public float[,] executeMul(float[,] A, float[,] B, float[,] C)
+        public float[,] executeMul(float[,] A, float[,] B, float[,] Ctemp)
         {
-            float[,] Ctemp = C;
             var watch = System.Diagnostics.Stopwatch.StartNew();
             CsLibraryClass.callMul(A,  B, Ctemp);
 

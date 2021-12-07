@@ -121,9 +121,9 @@ namespace APL_Matrix_Calculator
             A_rows = rows;
             A_col = columns;
             A = new float[A_rows,A_col];
-            for(int i = 4; i >= 0 ; i--)
+            for(int i = 5; i >= 0 ; i--)
             {
-                for(int j = 4; j >= 0; j--)
+                for(int j = 5; j >= 0; j--)
                 {
                     if((j >= columns && i >= rows) || (j <= columns && i >= rows) || (j >= columns && i <= rows))
                     {
@@ -153,9 +153,9 @@ namespace APL_Matrix_Calculator
             B_rows = rows;
             B_col = columns;
             B = new float[B_rows, B_col];
-            for (int i = 4; i >= 0; i--)
+            for (int i = 5; i >= 0; i--)
             {
-                for (int j = 4; j >= 0; j--)
+                for (int j = 5; j >= 0; j--)
                 {
                     if ((j >= columns && i >= rows) || (j <= columns && i >= rows) || (j >= columns && i <= rows))
                     {

@@ -19,7 +19,7 @@ namespace APL_Matrix_Calculator
 
 
         [DllImport("Asm.dll")]
-        public static extern void asmMul(float[] A, float[] B, float[] C);
+        public static extern void asmMul(float[] A, float[] B, float[] C, int moreVal);
 
         [DllImport("Asm.dll")]
         public static extern void asmDummy();
@@ -36,29 +36,30 @@ namespace APL_Matrix_Calculator
         /// <param name="B">B matrix</param>
         /// <param name="C">C matrix</param>
         /// <returns>Matrix with result</returns>
-        public float[,] executeAsmAdd(float[,] A, float[,] B, float[,] C)
+        public float[,] executeAsmAdd(float[,] A, float[,] B, float[,] Ctemp)
         {
             asmDummy();
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            float[,] Ctemp = C;
+
 
             float[] a = new float[A.GetLength(1)];
             float[] b = new float[B.GetLength(1)];
             float[] c = new float[Ctemp.GetLength(1)];
 
+            
             for (int i = 0; i < A.GetLength(0); i++)
             {
                for (int j = 0; j < A.GetLength(1); j++)
                {
-                     a[j] = A[i, j];
+                      a[j] = A[i, j];
                       b[j] = B[i, j];
-                  c[j] = Ctemp[i, j];
+                     c[j] = Ctemp[i, j];
                }
 
                asmAdd(a,b,c);
 
-               for (int k = 0; k < C.GetLength(1); k++)
+               for (int k = 0; k < Ctemp.GetLength(1); k++)
                {
                   Ctemp[i, k] = c[k];
                }
@@ -77,15 +78,14 @@ namespace APL_Matrix_Calculator
         /// <param name="B">B matrix</param>
         /// <param name="C">C matrix</param>
         /// <returns>Matrix with result</returns>
-        public float[,] executeAsmSub(float[,] A, float[,] B, float[,] C)
+        public float[,] executeAsmSub(float[,] A, float[,] B, float[,] Ctemp)
         {
             asmDummy();
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            float[,] Ctemp = C;
             float[] a = new float[A.GetLength(1)];
             float[] b = new float[B.GetLength(1)];
-            float[] c = new float[C.GetLength(1)];
+            float[] c = new float[Ctemp.GetLength(1)];
 
             for (int i = 0; i < A.GetLength(0); i++)
             {
@@ -98,7 +98,7 @@ namespace APL_Matrix_Calculator
 
                 asmSub(a, b, c);
 
-                for (int k = 0; k < C.GetLength(1); k++)
+                for (int k = 0; k < Ctemp.GetLength(1); k++)
                 {
                     Ctemp[i, k] = c[k];
                 }
@@ -117,18 +117,24 @@ namespace APL_Matrix_Calculator
         /// <param name="B">B matrix</param>
         /// <param name="C">C matrix</param>
         /// <returns>Matrix with result</returns>
-        public float[,] executeAsmMul(float[,] A, float[,] B, float[,] C)
+        public float[,] executeAsmMul(float[,] A, float[,] B, float[,] Ctemp)
         {
             asmDummy();
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            float[,] Ctemp = C;
+           
             float[] a = new float[A.GetLength(1)];
             float[] b = new float[B.GetLength(0)];
-            float[] c = new float[6];
+            float[] c = new float[Ctemp.GetLength(0)];
             int rows = Ctemp.GetLength(0);
             int columns = Ctemp.GetLength(1);
             int k = 0;
+            int moreVal = 0;
+
+            if(A.GetLength(1) > 4)
+            {
+                moreVal = 1;
+            }
 
             for (int i = 0; i < rows; ++i)
             {
@@ -146,16 +152,16 @@ namespace APL_Matrix_Calculator
                         b[y] = B[y, j];
 
                     }
-                    asmMul(a, b, c);
+                    asmMul(a, b, c, moreVal);
                         
                     //a lazy solution for 5x5 matrix
-                    if(A.GetLength(1)==5)
-                    {
-                        c[0] += c[4];
-                    }
+                  //  if(A.GetLength(1)==5)
+                  //  {
+                      //  c[0] += c[4];
+                  //  }
                     Ctemp[i, k] = c[0];
                     k++;
-                    if (k >= C.GetLength(1))
+                    if (k >= Ctemp.GetLength(1))
                     {
                         k = 0;
                     }

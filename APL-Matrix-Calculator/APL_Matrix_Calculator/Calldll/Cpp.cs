@@ -39,15 +39,14 @@ namespace APL_Matrix_Calculator.Calldll
         /// <param name="B">B matrix</param>
         /// <param name="C">C matrix</param>
         /// <returns>Matrix with result</returns>
-        public float[,] executeCppAdd(float[,] A, float[,] B, float[,] C)
+        public float[,] executeCppAdd(float[,] A, float[,] B, float[,] Ctemp)
         {
-            dummy(A, B, C);
-            float[,] Ctemp = C;
-            int rows = C.GetLength(0);
-            int columns = C.GetLength(1);
+            dummy(A, B, Ctemp);
+            int rows = Ctemp.GetLength(0);
+            int columns = Ctemp.GetLength(1);
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            callAdd(A, B, C, rows, columns);
+            callAdd(A, B, Ctemp, rows, columns);
 
 
             watch.Stop();
@@ -64,12 +63,12 @@ namespace APL_Matrix_Calculator.Calldll
         /// <param name="B">B matrix</param>
         /// <param name="C">C matrix</param>
         /// <returns>Matrix with result</returns>
-        public float[,] executeCppSub(float[,] A, float[,] B, float[,] C)
+        public float[,] executeCppSub(float[,] A, float[,] B, float[,] Ctemp)
         {
-            dummy(A, B, C);
-            float[,] Ctemp = C;
-            int rows = C.GetLength(0);
-            int columns = C.GetLength(1);
+            dummy(A, B, Ctemp);
+
+            int rows = Ctemp.GetLength(0);
+            int columns = Ctemp.GetLength(1);
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
             callSub(A,B,Ctemp,rows,columns);
@@ -89,12 +88,12 @@ namespace APL_Matrix_Calculator.Calldll
         /// <param name="B">B matrix</param>
         /// <param name="C">C matrix</param>
         /// <returns>Matrix with result</returns>
-        public float[,] executeCppMul(float[,] A, float[,] B, float[,] C)
+        public float[,] executeCppMul(float[,] A, float[,] B, float[,] Ctemp)
         {
-            dummy(A, B, C);
-            float[,] Ctemp = C;
-            int rows = C.GetLength(0);
-            int columns = C.GetLength(1);
+            dummy(A, B, Ctemp);
+
+            int rows = Ctemp.GetLength(0);
+            int columns = Ctemp.GetLength(1);
             int colsA = A.GetLength(1);
             int colsB = B.GetLength(1);
 
